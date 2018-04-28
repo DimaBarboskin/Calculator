@@ -9,8 +9,9 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        calculateUsersActions();
-    }
+        chooseOperation();
+        }
+
 
     /**
      * Calculate numbers
@@ -61,8 +62,42 @@ public class Main {
                 default:
                     System.out.println("Wrong action. Do it again");
                     calculateUsersActions();
-                    break;
         }
         scanner.close();
     }
+    public static void searchMaxElement(){
+        System.out.println("Write the number of elements");
+        Scanner scanner = new Scanner(System.in);
+        int index = scanner.nextInt();
+        String max = "";
+        String[] array = new String[index];
+        System.out.println("Write element");
+        for(int i = 0;i<array.length;i++){
+            array[i]= scanner.next();
+        }
+        for(String s : array){
+            if (s.length()>max.length())
+                max = s;
+        }
+        System.out.println(max);
+    }
+
+    public static void chooseOperation(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What would you like to do?");
+        System.out.println("1 - Calculator, 2 - Search max element of array");
+        int choice = scanner.nextInt();
+        switch (choice){
+            case (1):
+                calculateUsersActions();
+                break;
+            case (2):
+                searchMaxElement();
+                break;
+            default:
+                System.out.println("Wrong actions. Do it again");
+                chooseOperation();
+
+    }
+}
 }
